@@ -1,0 +1,32 @@
+{
+    "plugins": [
+        "@loadable/babel-plugin",
+        "@babel/plugin-syntax-dynamic-import"
+    ],
+    "presets": [
+        "@babel/preset-react",
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current",
+                    "browsers": ["last 2 versions"]
+                }
+            }
+        ],
+        "@emotion/babel-preset-css-prop"
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                [
+                    "transform-react-remove-prop-types",
+                    {
+                        "mode": "wrap",
+                        "ignoreFilenames": ["node_modules"]
+                    }
+                ]
+            ]
+        }
+    }
+}
